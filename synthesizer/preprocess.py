@@ -65,6 +65,7 @@ def preprocess_dataset(datasets_root: Path, out_dir: Path, n_processes: int,
                 if not v:
                     continue
                 v = v.strip().replace("\n","").replace("\t"," ").split(" ")
+                # key=录音号，value=list<word>
                 dict_info[v[0]] = " ".join(v[1:])
 
     speaker_dirs = list(chain.from_iterable(input_dir.glob("*") for input_dir in input_dirs))

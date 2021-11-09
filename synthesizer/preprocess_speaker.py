@@ -73,7 +73,7 @@ def _split_on_silences(wav_fpath, words, hparams):
                                     wav[-int(hparams.sample_rate*0.15):]])
         profile = logmmse.profile_noise(noise_wav, hparams.sample_rate)
         wav = logmmse.denoise(wav, profile, eta=0)
-
+    # 将汉字转化为拼音
     resp = pinyin(words, style=Style.TONE3)
     res = [v[0] for v in resp if v[0].strip()]
     res = " ".join(res)

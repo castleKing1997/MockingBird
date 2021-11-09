@@ -45,6 +45,7 @@ class Encoder(nn.Module):
 
     def add_speaker_embedding(self, x, speaker_embedding):
         # SV2TTS
+        # encoder把每个单词转化为tts_embed_dim维向量，并且通过CBHG关联上下文
         # The input x is the encoder output and is a 3D tensor with size (batch_size, num_chars, tts_embed_dims)
         # When training, speaker_embedding is also a 2D tensor with size (batch_size, speaker_embedding_size)
         #     (for inference, speaker_embedding is a 1D tensor with size (speaker_embedding_size))
